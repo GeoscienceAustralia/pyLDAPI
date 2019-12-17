@@ -15,7 +15,8 @@ class Renderer(object, metaclass=ABCMeta):
     either registers or objects) and also creates an 'alternates view' for them, based on all available views & formats.
     """
 
-    RDF_MIMETYPES = ['text/turtle', 'application/rdf+xml', 'application/ld+json', 'text/n3', 'application/n-triples']
+    RDF_MIMETYPES = ['text/turtle', 'application/rdf+xml', 'application/rdfxml', 'application/ld+json',
+                     'application/ldjson', 'text/n3', 'application/n-triples']
     RDF_SERIALIZER_MAP = {
         "text/turtle": "turtle",
         "text/n3": "n3",
