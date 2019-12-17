@@ -21,7 +21,9 @@ class Renderer(object, metaclass=ABCMeta):
         "text/n3": "n3",
         "application/n-triples": "nt",
         "application/ld+json": "json-ld",
+        "application/ldjson": "json-ld", #the pid server removes the plus to get through tomcat
         "application/rdf+xml": "xml",
+        "application/rdfxml": "xml",
         # Some common but incorrect mimetypes
         "application/rdf": "xml",
         "application/rdf xml": "xml",
