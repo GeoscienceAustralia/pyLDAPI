@@ -15,16 +15,13 @@ class Renderer(object, metaclass=ABCMeta):
     either registers or objects) and also creates an 'alternates view' for them, based on all available views & formats.
     """
 
-    RDF_MIMETYPES = ['text/turtle', 'application/rdf+xml', 'application/rdfxml', 'application/ld+json',
-                     'application/ldjson', 'text/n3', 'application/n-triples']
+    RDF_MIMETYPES = ['text/turtle', 'application/rdf+xml',  'application/ld+json', 'text/n3', 'application/n-triples']
     RDF_SERIALIZER_MAP = {
         "text/turtle": "turtle",
         "text/n3": "n3",
         "application/n-triples": "nt",
         "application/ld+json": "json-ld",
-        "application/ldjson": "json-ld", #the pid server removes the plus to get through tomcat
         "application/rdf+xml": "xml",
-        "application/rdfxml": "xml",
         # Some common but incorrect mimetypes
         "application/rdf": "xml",
         "application/rdf xml": "xml",
