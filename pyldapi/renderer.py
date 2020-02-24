@@ -7,7 +7,7 @@ from rdflib.namespace import DCTERMS
 from pyldapi.view import View
 from pyldapi.exceptions import ViewsFormatsException
 import connegp
-
+import re
 
 class Renderer(object, metaclass=ABCMeta):
     """
@@ -240,10 +240,12 @@ class Renderer(object, metaclass=ABCMeta):
         if hasattr(self.request, 'headers'):
             if self.request.headers.get('Accept') is not None:
                 try:
+                    # Chrome breaking Accept header variable by adding v=b3
+                    # Issue https://github.com/RDFLib/pyLDAPI/issues/21
+                    mediatypes_string = re.sub('v=(.*);', '', self.request.headers['Accept'])
+
                     # split the header into individual URIs, with weights still attached
-                    mediatypes = self.request.headers['Accept'].split(',')
-                    # remove \s
-                    mediatypes = [x.strip() for x in mediatypes]
+                    mediatypes = mediatypes_string.split(',')
 
                     # split off any weights and sort by them with default weight = 1
                     mediatypes = [
