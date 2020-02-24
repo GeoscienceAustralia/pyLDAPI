@@ -2,13 +2,19 @@
 
 from pyldapi.exceptions import ViewsFormatsException, PagingError
 from pyldapi.renderer import Renderer
-from pyldapi.register_renderer import RegisterRenderer,\
-    RegisterOfRegistersRenderer
-from pyldapi.view import View
+from pyldapi.renderer_container import ContainerRenderer, ContainerOfContainersRenderer
+from pyldapi.profile import Profile
 from pyldapi.helpers import setup
 
-__version__ = '2.1.2.post5'
+__version__ = '3.5'
 
-__all__ = ['Renderer', 'RegisterRenderer', 'RegisterOfRegistersRenderer',
-           'View', 'ViewsFormatsException', 'PagingError', 'setup',
-           '__version__']
+__all__ = [
+    'Renderer',
+    'ContainerRenderer',
+    'ContainerOfContainersRenderer',
+    'Profile',
+    'ViewsFormatsException',
+    'PagingError',
+    'setup',
+    '__version__'
+]
